@@ -11,11 +11,13 @@ RUN apt-get purge -y wget
 
 RUN apt-get update
 
-RUN apt-get install -y gdc dub
+RUN apt-get install -y gdc dub dmd-bin
 RUN apt-get install -y libcurl3-gnutls
 
 ADD . /app/
 # Set default WORKDIR
 WORKDIR /app
 
-RUN dub build --compiler=gdc
+RUN dub build --compiler=gdc --build=release
+
+RUN /bin/bash -c 'cd /app/; time cat people.jsonl | ./jsonl2csv'

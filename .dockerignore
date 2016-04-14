@@ -1,5 +1,4 @@
 .dub
-people.jsonl
 docs.json
 __dummy.html
 *.o
