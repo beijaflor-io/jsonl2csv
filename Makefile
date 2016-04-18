@@ -1,5 +1,5 @@
 jsonl2csv: FORCE
-	dub --compiler=gdc
+	dub build
 
 local-install:
 	dub build --build=release
